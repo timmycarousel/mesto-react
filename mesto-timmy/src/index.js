@@ -9,14 +9,14 @@ import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <body class="html">
+  <div className="html">
     <div className="page">
       <Header />
       <App />
       {/* <Main /> */}
       <Footer />
     </div>
-  </body>
+  </div>
 );
 
 // If you want to start measuring performance in your app, pass a function

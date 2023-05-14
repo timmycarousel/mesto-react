@@ -48,7 +48,7 @@ function App() {
   }
 
   return (
-    <body className="html">
+    <div className="html">
       <div className="page">
         <Main
           onEditAvatar={handleEditAvatarClick}
@@ -70,8 +70,8 @@ function App() {
             id="nameValue"
             placeholder="Имя"
             className="popup__field-name field"
-            maxlength="40"
-            minlength="2"
+            maxLength="40"
+            minLength="2"
           />
           <span
             id="nameValue-error"
@@ -84,8 +84,8 @@ function App() {
             id="infoValue"
             placeholder="О себе"
             className="popup__field-info field"
-            maxlength="200"
-            minlength="2"
+            maxLength="200"
+            minLength="2"
           />
           <span
             id="infoValue-error"
@@ -106,8 +106,8 @@ function App() {
             id="newValue"
             placeholder="Название"
             className="popup__field-name field"
-            minlength="2"
-            maxlength="30"
+            minLength="2"
+            maxLength="30"
           />
           <span
             id="newValue-error"
@@ -147,7 +147,7 @@ function App() {
             name="avatar"
             placeholder="Ссылка на картинку"
             required
-            minlength="2"
+            minLength="2"
           />
           <span
             id="avatar-error"
@@ -156,7 +156,7 @@ function App() {
         </PopupWithForm>
         <ImagePopup card={selectedCard} onClose={closeAllPopups}></ImagePopup>
       </div>
-    </body>
+    </div>
   );
 }
 
