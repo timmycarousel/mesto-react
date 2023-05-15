@@ -12,4 +12,4 @@ Grid Layout, Подключен шрифт 'Intro', БЭМ Nested, JS. Вали�
 
 ### Ссылка на GitHub Pages
 
-https://timmycarousel.github.io/mesto/
+https://timmycarousel.github.io/mesto-react/
