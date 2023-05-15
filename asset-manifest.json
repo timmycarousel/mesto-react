@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/mesto-react/static/css/main.9330130a.css",
+    "main.js": "/mesto-react/static/js/main.fe9fa172.js",
+    "static/js/787.14322200.chunk.js": "/mesto-react/static/js/787.14322200.chunk.js",
+    "static/media/Inter-Medium.woff?v=3.19": "/mesto-react/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff?v=3.19": "/mesto-react/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/mesto-react/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2?v=3.19": "/mesto-react/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2?v=3.19": "/mesto-react/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2?v=3.19": "/mesto-react/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/header_logo.svg": "/mesto-react/static/media/header_logo.bbe2a6eafac19c3d031c272c424875ca.svg",
+    "static/media/like.svg": "/mesto-react/static/media/like.cbed5331d270056562b2.svg",
+    "index.html": "/mesto-react/index.html",
+    "static/media/Trash.svg": "/mesto-react/static/media/Trash.ce3b64935accf9b8212e.svg",
+    "static/media/like-active.svg": "/mesto-react/static/media/like-active.35948469632d0421d697.svg",
+    "static/media/edit_button.svg": "/mesto-react/static/media/edit_button.f0dd9c51cf799b8b82d2.svg",
+    "static/media/karandash.svg": "/mesto-react/static/media/karandash.ae1a976ddb506239e9f0.svg",
+    "static/media/close_icon.svg": "/mesto-react/static/media/close_icon.039f1f5203f653b4bacd.svg",
+    "static/media/add_button_plus.svg": "/mesto-react/static/media/add_button_plus.d5d6f8af0577b9c95ee4.svg",
+    "main.9330130a.css.map": "/mesto-react/static/css/main.9330130a.css.map",
+    "main.fe9fa172.js.map": "/mesto-react/static/js/main.fe9fa172.js.map",
+    "787.14322200.chunk.js.map": "/mesto-react/static/js/787.14322200.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9330130a.css",
+    "static/js/main.fe9fa172.js"
+  ]
+}
