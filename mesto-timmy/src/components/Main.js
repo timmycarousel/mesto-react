@@ -1,81 +1,69 @@
 import React from "react";
-import api from "../utils/Api";
+// import api from "../utils/Api";
 import Card from "./Card";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
-  //   function handleEditAvatarClick() {
-  //     const popup = document.querySelector(".popup_type_avatar");
-  //     popup.classList.add("popup_active");
-  //   }
+// function Main({
+//   onEditAvatar,
+//   onEditProfile,
+//   onAddPlace,
+//   onCardClick,
+//   onCardLike,
+//   onDeleteCard,
+// })
+function Main(props) {
+  // const [cards, setCards] = React.useState([]);
+  const currentUser = React.useContext(CurrentUserContext);
+  const { name, about, avatar } = currentUser;
 
-  //   function handleEditProfileClick() {
-  //     const popup = document.querySelector(".popup_type_user");
-  //     popup.classList.add("popup_active");
-  //   }
-
-  //   function handleAddPlaceClick() {
-  //     const popup = document.querySelector(".popup_type_card");
-  //     popup.classList.add("popup_active");
-  //   }
-
-  const [userName, setUserName] = React.useState("");
-  const [userDescription, setUserDescription] = React.useState("");
-  const [userAvatar, setUserAvatar] = React.useState("");
-  const [cards, setCards] = React.useState([]);
-
-  React.useEffect(() => {
-    api
-      .getUserData()
-      .then((res) => {
-        // console.log(res);
-        // console.log(res.name);
-        // console.log(res.about);
-        setUserName(res.name);
-        setUserDescription(res.about);
-        setUserAvatar(res.avatar);
-      })
-      .catch((err) => console.log(`Error: ${err}`));
-  }, []);
-
-  React.useEffect(() => {
-    api
-      .getCardsFromServer()
-      .then((res) => {
-        // console.log(res);
-        setCards(res);
-      })
-      .catch((err) => console.log(`Error: ${err}`));
-  }, []);
+  // React.useEffect(() => {
+  //   api
+  //     .getCardsFromServer()
+  //     .then((res) => {
+  //       setCards(res);
+  //     })
+  //     .catch((err) => console.log(`Error: ${err}`));
+  // }, []);
 
   return (
     <main className="content">
       <div className="profile">
         <button
           className="profile__avatar-button button"
-          onClick={onEditAvatar}
+          onClick={props.onEditAvatar}
         ></button>
-        <img className="profile__avatar-img" src={userAvatar} alt="Аватар" />
+        <img className="profile__avatar-img" src={avatar} alt={name} />
 
         <div className="profile-info">
           <div className="profile-info__nowrap">
-            <h1 className="profile-info__name">{userName}</h1>
+            <h1 className="profile-info__name">{name}</h1>
             <button
               className="profile__edit-button button"
               type="button"
-              onClick={onEditProfile}
+              onClick={props.onEditProfile}
             ></button>
           </div>
-          <p className="profile-info__text">{userDescription}</p>
+          <p className="profile-info__text">{about}</p>
         </div>
         <button
           className="profile__add-button button"
           type="button"
-          onClick={onAddPlace}
+          onClick={props.onAddPlace}
         ></button>
       </div>
       <section className="elements">
-        {cards.map((card) => {
-          return <Card card={card} onCardClick={onCardClick} key={card._id} />;
+        {props.cards.map((card) => {
+          return (
+            <Card
+              card={card}
+              link={card.link}
+              name={card.name}
+              onDeleteCard={props.onDeleteCard}
+              onCardClick={props.onCardClick}
+              onCardLike={props.onCardLike}
+              key={card._id}
+            />
+          );
         })}
       </section>
     </main>

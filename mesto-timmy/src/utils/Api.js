@@ -9,7 +9,7 @@ class Api {
     return Promise.reject("Ошибка:" + res.status);
   }
 
-  getUserData() {
+  getUserInfo() {
     return fetch(this.url + "/users/me", {
       headers: this.headers,
     }).then((res) => this._handleResponse(res));
@@ -51,18 +51,32 @@ class Api {
     }).then(this._handleResponse);
   }
 
-  addLike(cardId) {
-    return fetch(this.url + "/cards/" + cardId + "/likes", {
-      method: "PUT",
-      headers: this.headers,
-    }).then((res) => this._handleResponse(res));
-  }
+  // addLike(cardId) {
+  //   return fetch(this.url + "/cards/" + cardId + "/likes", {
+  //     method: "PUT",
+  //     headers: this.headers,
+  //   }).then((res) => this._handleResponse(res));
+  // }
 
-  deleteLike(cardId) {
-    return fetch(this.url + "/cards/" + cardId + "/likes", {
-      method: "DELETE",
-      headers: this.headers,
-    }).then((res) => this._handleResponse(res));
+  // deleteLike(cardId) {
+  //   return fetch(this.url + "/cards/" + cardId + "/likes", {
+  //     method: "DELETE",
+  //     headers: this.headers,
+  //   }).then((res) => this._handleResponse(res));
+  // }
+
+  changeLikeCardStatus(cardId, isLiked) {
+    if (!isLiked) {
+      return fetch(this.url + "/cards/" + cardId + "/likes", {
+        method: "DELETE",
+        headers: this.headers,
+      }).then((res) => this._handleResponse(res));
+    } else {
+      return fetch(this.url + "/cards/" + cardId + "/likes", {
+        method: "PUT",
+        headers: this.headers,
+      }).then((res) => this._handleResponse(res));
+    }
   }
 
   changeAvatar(avatarLink) {
