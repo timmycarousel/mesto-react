@@ -21,7 +21,18 @@ class Api {
     }).then((res) => this._handleResponse(res));
   }
 
-  patchUserData(data) {
+  // patchUserData(data) {
+  //   return fetch(this.url + "/users/me", {
+  //     method: "PATCH",
+  //     headers: this.headers,
+  //     body: JSON.stringify({
+  //       about: data.info,
+  //       name: data.name,
+  //     }),
+  //   }).then((res) => this._handleResponse(res));
+  // }
+
+  setUserInfo(data) {
     return fetch(this.url + "/users/me", {
       method: "PATCH",
       headers: this.headers,
@@ -79,7 +90,7 @@ class Api {
     }
   }
 
-  changeAvatar(avatarLink) {
+  sendAvatarData(avatarLink) {
     return fetch(this.url + "/users/me/avatar", {
       method: "PATCH",
       headers: this.headers,
