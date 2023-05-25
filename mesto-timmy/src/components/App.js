@@ -6,6 +6,7 @@ import api from "../utils/Api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
+import AddPlacePopup from "./AddPlacePopup";
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
@@ -18,18 +19,9 @@ function App() {
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
-    api
-      .getUserInfo()
-      .then((userInfo) => {
+    Promise.all([api.getUserInfo(), api.getCardsFromServer()])
+      .then(([userInfo, initialCards]) => {
         setCurrentUser(userInfo);
-      })
-      .catch((err) => console.log(`Error: ${err}`));
-  }, []);
-
-  React.useEffect(() => {
-    api
-      .getCardsFromServer()
-      .then((initialCards) => {
         setCards(initialCards);
       })
       .catch((err) => console.log(`Error: ${err}`));
@@ -66,6 +58,18 @@ function App() {
       .sendAvatarData(link)
       .then((res) => {
         setCurrentUser(res);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(`Error: ${err}`);
+      });
+  }
+
+  function handleAddPlaceSubmit(newCard) {
+    api
+      .addCard(newCard)
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
@@ -127,41 +131,11 @@ function App() {
             onClose={closeAllPopups}
             onUpdateUser={handleUpdateUser}
           />
-
-          <PopupWithForm
-            name="card"
-            title="Новое место"
-            buttonText="Создать"
+          <AddPlacePopup
             isOpen={isAddPlacePopupOpen}
             onClose={closeAllPopups}
-          >
-            <input
-              required
-              type="text"
-              name="name"
-              id="newValue"
-              placeholder="Название"
-              className="popup__field-name field"
-              minLength="2"
-              maxLength="30"
-            />
-            <span
-              id="newValue-error"
-              className="popup__span popup__span_error_visible"
-            ></span>
-            <input
-              required
-              type="url"
-              name="link"
-              id="UrlValue"
-              placeholder="Ссылка на картинку"
-              className="popup__field-info field"
-            />
-            <span
-              id="UrlValue-error"
-              className="popup__span popup__span_error_visible"
-            ></span>
-          </PopupWithForm>
+            onAddPlace={handleAddPlaceSubmit}
+          />
 
           <PopupWithForm
             name="delete"

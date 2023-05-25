@@ -10,6 +10,10 @@
 
 Grid Layout, Подключен шрифт 'Intro', БЭМ Nested, JS. Валидизация форм через JS, организация кода через классы и методы. Файлы js подключены как модули. Работа через API. Асинхронный JS.
 
+### ПР11
+
+Пересобрали на React
+
 ### Ссылка на GitHub Pages
 
 https://timmycarousel.github.io/mesto-react/

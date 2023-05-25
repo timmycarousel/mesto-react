@@ -21,17 +21,6 @@ class Api {
     }).then((res) => this._handleResponse(res));
   }
 
-  // patchUserData(data) {
-  //   return fetch(this.url + "/users/me", {
-  //     method: "PATCH",
-  //     headers: this.headers,
-  //     body: JSON.stringify({
-  //       about: data.info,
-  //       name: data.name,
-  //     }),
-  //   }).then((res) => this._handleResponse(res));
-  // }
-
   setUserInfo(data) {
     return fetch(this.url + "/users/me", {
       method: "PATCH",
@@ -43,14 +32,13 @@ class Api {
     }).then((res) => this._handleResponse(res));
   }
 
-  addNewCard(data) {
+  addCard(data) {
     return fetch(this.url + "/cards", {
       method: "POST",
       headers: this.headers,
       body: JSON.stringify({
         name: data.name,
         link: data.link,
-        // _id: data._id,
       }),
     }).then((res) => this._handleResponse(res));
   }
@@ -61,20 +49,6 @@ class Api {
       headers: this.headers,
     }).then(this._handleResponse);
   }
-
-  // addLike(cardId) {
-  //   return fetch(this.url + "/cards/" + cardId + "/likes", {
-  //     method: "PUT",
-  //     headers: this.headers,
-  //   }).then((res) => this._handleResponse(res));
-  // }
-
-  // deleteLike(cardId) {
-  //   return fetch(this.url + "/cards/" + cardId + "/likes", {
-  //     method: "DELETE",
-  //     headers: this.headers,
-  //   }).then((res) => this._handleResponse(res));
-  // }
 
   changeLikeCardStatus(cardId, isLiked) {
     if (!isLiked) {
