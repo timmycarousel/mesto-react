@@ -1,3 +1,4 @@
+//Импорт компонентов и библиотек:
 import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
 import Main from "./Main";
@@ -8,6 +9,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
 
+//Определение функционального компонента App:
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -77,15 +79,6 @@ function App() {
       });
   }
 
-  function handleEditAvatarClick() {
-    setIsEditAvatarPopupOpen(true);
-  }
-
-  function handleEditProfileClick() {
-    setIsEditProfilePopupOpen(true);
-    // console.log("Привет");
-  }
-
   function handleUpdateUser(data) {
     api
       .setUserInfo(data)
@@ -96,6 +89,14 @@ function App() {
       .catch((err) => {
         console.log(`Error: ${err}`);
       });
+  }
+
+  function handleEditAvatarClick() {
+    setIsEditAvatarPopupOpen(true);
+  }
+
+  function handleEditProfileClick() {
+    setIsEditProfilePopupOpen(true);
   }
 
   function handleAddPlaceClick() {
@@ -136,7 +137,6 @@ function App() {
             onClose={closeAllPopups}
             onAddPlace={handleAddPlaceSubmit}
           />
-
           <PopupWithForm
             name="delete"
             title="Вы уверены?"
